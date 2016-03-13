@@ -1,16 +1,25 @@
-@import "compass/css3/box-sizing";
+@import "bootstrap-compass";
+
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+@import "fa-bootstrap-chosen/variables";
+
 @import "compass/css3/images";
-@import "compass/css3/user-interface";
 
 $chosen-sprite: image-url('chosen-sprite.png') !default;
 $chosen-sprite-retina: image-url('chosen-sprite@2x.png') !default;
+
+.chosen-select, .chosen-select-deselect {
+  width: 100%;
+}
 
 /* @group Base */
 .chosen-container {
   position: relative;
   display: inline-block;
   vertical-align: middle;
-  font-size: 13px;
+  font-size: $font-size-base;
   @include user-select(none);
   * {
     @include box-sizing(border-box);
@@ -21,26 +30,32 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png') !default;
     left: -9999px;
     z-index: 1010;
     width: 100%;
-    border: 1px solid #aaa;
+    border: 1px solid $chosen-input-border;
     border-top: 0;
-    background: #fff;
-    box-shadow: 0 4px 5px rgba(#000,.15);
+    background: $chosen-input-bg;
+    @include box-shadow($chosen-drop-box-shadow);
+    // @include border-bottom-radius($chosen-input-border-radius);
   }
   &.chosen-with-drop .chosen-drop {
     left: 0;
+    right: 0;
   }
   a{
     cursor: pointer;
-  }
 
+    &:hover {
+      text-decoration: none;
+    }
+  }
   .search-choice, .chosen-single{
     .group-name{
-      margin-right: 4px;
+      margin-right: $padding-base-horizontal;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
       font-weight: normal;
-      color: #999999;
+      color: $chosen-input-color-placeholderd;
+
       &:after {
         content: ":";
         padding-left: 2px;
@@ -57,31 +72,29 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png') !default;
     position: relative;
     display: block;
     overflow: hidden;
-    padding: 0 0 0 8px;
-    height: 25px;
-    border: 1px solid #aaa;
-    border-radius: 5px;
-    background-color: #fff;
-    @include background(linear-gradient(#fff 20%, #f6f6f6 50%, #eee 52%, #f4f4f4 100%));
+    padding: 0 0 0 $padding-base-horizontal;
+    height: $chosen-input-height-base;
+    border: $chosen-input-border;
+    @include border-top-radius($chosen-input-border-radius);
+    @include border-bottom-radius($chosen-input-border-radius);
+    background-color: $chosen-input-bg;
     background-clip: padding-box;
-    box-shadow: 0 0 3px #fff inset, 0 1px 1px rgba(#000,.1);
-    color: #444;
+    @include box-shadow($chosen-box-shadow);
+    color: $chosen-input-color;
     text-decoration: none;
     white-space: nowrap;
-    line-height: 24px;
+    line-height: $chosen-input-height-base; // TODO
   }
   .chosen-default {
-    color: #999;
+    color: $chosen-input-color-placeholderd;
   }
   .chosen-single span {
     display: block;
-    overflow: hidden;
-    margin-right: 26px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    margin-right: $line-height-computed;
+    @include text-overflow();
   }
   .chosen-single-with-deselect span {
-    margin-right: 38px;
+    margin-right: $line-height-computed * 2;
   }
   .chosen-single abbr {
     position: absolute;
@@ -121,22 +134,24 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png') !default;
     white-space: nowrap;
     input[type="text"] {
       margin: 1px 0;
-      padding: 4px 20px 4px 5px;
+      padding: 4px $font-size-base 4px 4px;
       width: 100%;
       height: auto;
       outline: 0;
-      border: 1px solid #aaa;
+      border: $chosen-input-border;
       background: #fff $chosen-sprite no-repeat 100% -20px;
       @include background($chosen-sprite no-repeat 100% -20px);
       font-size: 1em;
       font-family: sans-serif;
       line-height: normal;
-      border-radius: 0;
+      @include border-top-radius(0);
+      @include border-bottom-radius(0);
     }
   }
   .chosen-drop {
     margin-top: -1px;
-    border-radius: 0 0 4px 4px;
+    @include border-top-radius(0);
+    @include border-bottom-radius($chosen-input-border-radius);
     background-clip: padding-box;
   }
   &.chosen-container-single-nosearch .chosen-search {
@@ -148,20 +163,20 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png') !default;
 
 /* @group Results */
 .chosen-container .chosen-results {
-  color: #444;
+  color: $chosen-input-color;
   position: relative;
   overflow-x: hidden;
   overflow-y: auto;
-  margin: 0 4px 4px 0;
-  padding: 0 0 0 4px;
+  margin: 0;
+  padding: 0;
   max-height: 240px;
   -webkit-overflow-scrolling: touch;
   li {
     display: none;
     margin: 0;
-    padding: 5px 6px;
+    padding: 5px $padding-base-horizontal;
     list-style: none;
-    line-height: 15px;
+    line-height: $line-height-base;
     word-wrap: break-word;
     -webkit-touch-callout: none;
     &.active-result {
@@ -170,21 +185,27 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png') !default;
     }
     &.disabled-result {
       display: list-item;
-      color: #ccc;
+      color: $chosen-input-bg-disabled;
       cursor: default;
     }
     &.highlighted {
-      background-color: #3875d7;
-      @include background-image(linear-gradient(#3875d7 20%, #2a62bc 90%));
-      color: #fff;
+      background-color: $chosen-highlighted-background-color;
+      background-image: none;
+      color: white;
     }
-    &.no-results {
-      color: #777;
+
+    &.active-result:last-child.highlighted {
+      @include border-bottom-radius($chosen-input-border-radius);
+    }
+
+    .no-results {
+      color: $gray-light;
       display: list-item;
-      background: #f4f4f4;
+      background: $chosen-input-bg-disabled;
     }
     &.group-result {
       display: list-item;
+      color: $chosen-input-color-placeholderd;
       font-weight: bold;
       cursor: default;
     }
@@ -205,13 +226,15 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png') !default;
     position: relative;
     overflow: hidden;
     margin: 0;
-    padding: 0 5px;
+    padding: 0;
     width: 100%;
     height: auto !important;
     height: 1%;
-    border: 1px solid #aaa;
-    background-color: #fff;
-    @include background-image(linear-gradient(#eee 1%, #fff 15%));
+    border: $chosen-input-border;
+    background-color: $chosen-input-bg;
+    @include border-top-radius($chosen-input-multi-border-radius);
+    @include border-bottom-radius($chosen-input-multi-border-radius);
+    @include box-shadow($chosen-box-shadow);
     cursor: text;
   }
   .chosen-choices li {
@@ -222,43 +245,49 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png') !default;
       padding: 0;
       white-space: nowrap;
       input[type="text"] {
-        margin: 1px 0;
-        padding: 0;
-        height: 25px;
+        margin: 0;
+        padding: 4px $padding-base-horizontal;
+        height: $chosen-input-multi-height-base - 8px;
         outline: 0;
         border: 0 !important;
         background: transparent !important;
-        box-shadow: none;
-        color: #999;
-        font-size: 100%;
-        font-family: sans-serif;
-        line-height: normal;
-        border-radius: 0;
+        @include box-shadow(none);
+        color: $chosen-input-color-placeholderd;
+        // font-size: 100%;
+        // font-family: sans-serif;
+        // line-height: normal;
+        @include border-top-radius(0);
+        @include border-bottom-radius(0);
+      }
+
+      .default {
+        color: $chosen-input-color-placeholderd;
       }
     }
+
     &.search-choice {
       position: relative;
-      margin: 3px 5px 3px 0;
-      padding: 3px 20px 3px 5px;
-      border: 1px solid #aaa;
+      margin: 6px 0 3px 5px;
+      padding: 3px $line-height-computed 3px 5px;
+      border: $chosen-input-border;
       max-width: 100%;
-      border-radius: 3px;
-      background-color: #eeeeee;
-      @include background-image(linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eee 100%));
+      @include border-top-radius($chosen-input-border-radius);
+      @include border-bottom-radius($chosen-input-border-radius);
+      background-color: $chosen-input-bg-disabled;
       background-size: 100% 19px;
       background-repeat: repeat-x;
       background-clip: padding-box;
-      box-shadow: 0 0 2px #fff inset, 0 1px 0 rgba(#000,.05);
-      color: #333;
-      line-height: 13px;
+      @include box-shadow($chosen-box-shadow);
+      color: $chosen-input-color;
+      line-height: $line-height-computed - 6px;
       cursor: default;
       span {
         word-wrap: break-word;
       }
       .search-choice-close {
         position: absolute;
-        top: 4px;
-        right: 3px;
+        top: 2px;
+        right: 2px;
         display: block;
         width: 12px;
         height: 12px;
@@ -271,10 +300,9 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png') !default;
     }
     &.search-choice-disabled {
       padding-right: 5px;
-      border: 1px solid #ccc;
-      background-color: #e4e4e4;
-      @include background-image(linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eee 100%));
-      color: #666;
+      border: $chosen-input-border;
+      background-color: $chosen-input-bg-disabled;
+      color: $gray;
     }
     &.search-choice-focus {
       background: #d4d4d4;
@@ -289,7 +317,7 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png') !default;
   }
   .chosen-drop .result-selected {
     display: list-item;
-    color: #ccc;
+    color: $gray-lighter;
     cursor: default;
   }
 }
@@ -323,7 +351,7 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png') !default;
     border: 1px solid #5897fb;
     box-shadow: 0 0 5px rgba(#000,.3);
     li.search-field input[type="text"] {
-      color: #222 !important;
+      color: $gray-darker !important;
     }
   }
 }
@@ -347,7 +375,7 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png') !default;
   text-align: right;
   .chosen-single {
     overflow: visible;
-    padding: 0 8px 0 0;
+    padding: 0 $padding-base-horizontal 0 0;
   }
   .chosen-single span {
     margin-right: 0;
@@ -355,7 +383,7 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png') !default;
     direction: rtl;
   }
   .chosen-single-with-deselect span {
-    margin-left: 38px;
+    margin-left: 50px;
   }
   .chosen-single div {
     right: auto;
@@ -363,7 +391,7 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png') !default;
   }
   .chosen-single abbr {
     right: auto;
-    left: 26px;
+    left: $font-size-base + 3px;
   }
   .chosen-choices li {
     float: right;
@@ -372,10 +400,11 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png') !default;
     }
     &.search-choice {
       margin: 3px 5px 3px 0;
-      padding: 3px 5px 3px 19px;
+      padding: 3px 5px 3px $line-height-computed;
+
       .search-choice-close {
         right: auto;
-        left: 4px;
+        left: 2px;
       }
     }
   }
@@ -411,7 +440,6 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png') !default;
     }
   }
 }
-
 /* @end */
 
 /* @group Retina compatibility */
