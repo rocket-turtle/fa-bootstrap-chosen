@@ -1,8 +1,10 @@
-// will be removed
-@mixin background($background) {
-  background: $background;
-}
-
-@mixin background-image($background-image) {
-  background-image: $background-image;
+//
+@mixin chosen-font-awesome-icon($content) {
+  font-family: $chosen-icon-font-family;
+  font-size: $chosen-icon-font-size;
+  display: block;
+  width: $chosen-icon-line-height;
+  color: $chosen-icon-color;
+  content: $content;
+  text-align: center;
 }

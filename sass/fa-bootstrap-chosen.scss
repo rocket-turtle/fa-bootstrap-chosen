@@ -6,9 +6,6 @@
 @import "fa-bootstrap-chosen/variables";
 @import "fa-bootstrap-chosen/mixins";
 
-$chosen-sprite: image-url('chosen-sprite.png') !default;
-$chosen-sprite-retina: image-url('chosen-sprite@2x.png') !default;
-
 .chosen-select, .chosen-select-deselect {
   width: 100%;
 }
@@ -97,32 +94,27 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png') !default;
   }
   .chosen-single abbr {
     position: absolute;
-    top: 6px;
-    right: 26px;
+    top: 0;
+    right: $font-size-base + 3px;
     display: block;
-    width: 12px;
-    height: 12px;
-    background: $chosen-sprite -42px 1px no-repeat;
-    font-size: 1px;
-    &:hover {
-      background-position: -42px -10px;
+    &:after {
+      @include chosen-font-awesome-icon($chosen-icon-close);
+    }
+    &:hover:after {
+      color: black;
     }
   }
-  &.chosen-disabled .chosen-single abbr:hover {
-    background-position: -42px -10px;
+  &.chosen-disabled .chosen-single abbr:hover:after {
+    color: black;
   }
   .chosen-single div {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 3px;
     display: block;
-    width: 18px;
     height: 100%;
-    b {
-      display: block;
-      width: 100%;
-      height: 100%;
-      background: $chosen-sprite no-repeat 0px 2px;
+    b:after {
+      @include chosen-font-awesome-icon($chosen-icon-down);
     }
   }
   .chosen-search {
@@ -138,13 +130,18 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png') !default;
       height: auto;
       outline: 0;
       border: $chosen-input-border;
-      background: #fff $chosen-sprite no-repeat 100% -20px;
-      @include background($chosen-sprite no-repeat 100% -20px);
+      background-color: $chosen-background-color-search;
       font-size: 1em;
       font-family: sans-serif;
       line-height: normal;
       @include border-top-radius(0);
       @include border-bottom-radius(0);
+    }
+    &:after {
+      @include chosen-font-awesome-icon($chosen-icon-search);
+      position: absolute;
+      right: 2px;
+      top: $font-size-base / 2;
     }
   }
   .chosen-drop {
@@ -156,6 +153,14 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png') !default;
   &.chosen-container-single-nosearch .chosen-search {
     position: absolute;
     left: -9999px;
+    input[type="text"] {
+      position: absolute;
+      left: -9000px;
+    }
+
+    &:after {
+      left: -9000px;
+    }
   }
 }
 /* @end */
@@ -273,8 +278,6 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png') !default;
       @include border-top-radius($chosen-input-border-radius);
       @include border-bottom-radius($chosen-input-border-radius);
       background-color: $chosen-input-bg-disabled;
-      background-size: 100% 19px;
-      background-repeat: repeat-x;
       background-clip: padding-box;
       @include box-shadow($chosen-box-shadow);
       color: $chosen-input-color;
@@ -288,12 +291,15 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png') !default;
         top: 2px;
         right: 2px;
         display: block;
-        width: 12px;
-        height: 12px;
-        background: $chosen-sprite -42px 1px no-repeat;
-        font-size: 1px;
-        &:hover {
-          background-position: -42px -10px;
+
+        &:after {
+          @include chosen-font-awesome-icon($chosen-icon-close);
+          width: $chosen-icon-font-size;
+          line-height: $chosen-icon-font-size;
+        }
+
+        &:hover:after {
+          color: black;
         }
       }
     }
@@ -305,8 +311,8 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png') !default;
     }
     &.search-choice-focus {
       background: #d4d4d4;
-      .search-choice-close {
-        background-position: -42px -10px;
+      .search-choice-close:hover:after {
+        color: black;
       }
     }
   }
@@ -335,15 +341,10 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png') !default;
       border-bottom-right-radius: 0;
       -moz-border-radius-bottomleft: 0;
       border-bottom-left-radius: 0;
-      @include background-image(linear-gradient(#eee 20%, #fff 80%));
       box-shadow: 0 1px 0 #fff inset;
     }
-    .chosen-single div {
-      border-left: none;
-      background: transparent;
-      b {
-        background-position: -18px 2px;
-      }
+    .chosen-single div b:after {
+      @include chosen-font-awesome-icon($chosen-icon-up);
     }
   }
   .chosen-choices {
@@ -411,48 +412,31 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png') !default;
   .chosen-drop {
     left: 9999px;
   }
-  &.chosen-container-single .chosen-results {
-    margin: 0 0 4px 4px;
-    padding: 0 4px 0 0;
+  &.chosen-container-single {
+    .chosen-results {
+      margin: 0 0 4px 4px;
+      padding: 0 4px 0 0;
+    }
+
+    .chosen-search:after {
+      right: auto;
+      left: 2px;
+    }
   }
+
+  &.chosen-container-single-nosearch {
+    .chosen-search:after {
+      left: -9999px;
+    }
+  }
+
   .chosen-results li.group-option {
     padding-right: 15px;
     padding-left: 0;
   }
-  &.chosen-container-active.chosen-with-drop .chosen-single div {
-    border-right: none;
-  }
   .chosen-search input[type="text"] {
     padding: 4px 5px 4px 20px;
-    background: #fff $chosen-sprite no-repeat -30px -20px;
-    @include background($chosen-sprite no-repeat -30px -20px);
     direction: rtl;
-  }
-  &.chosen-container-single{
-    .chosen-single div b {
-      background-position: 6px 2px;
-    }
-    &.chosen-with-drop{
-      .chosen-single div b {
-        background-position: -12px 2px;
-      }
-    }
-  }
-}
-/* @end */
-
-/* @group Retina compatibility */
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi), only screen and (min-resolution: 1.5dppx) {
-  .chosen-rtl .chosen-search input[type="text"],
-  .chosen-container-single .chosen-single abbr,
-  .chosen-container-single .chosen-single div b,
-  .chosen-container-single .chosen-search input[type="text"],
-  .chosen-container-multi .chosen-choices .search-choice .search-choice-close,
-  .chosen-container .chosen-results-scroll-down span,
-  .chosen-container .chosen-results-scroll-up span {
-    background-image: $chosen-sprite-retina !important;
-    background-size: 52px 37px !important;
-    background-repeat: no-repeat !important;
   }
 }
 /* @end */
