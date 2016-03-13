@@ -16,6 +16,7 @@
   display: inline-block;
   vertical-align: middle;
   font-size: $font-size-base;
+  @include chosen-disabled;
   @include user-select(none);
   * {
     @include box-sizing(border-box);
@@ -30,7 +31,6 @@
     border-top: 0;
     background: $chosen-input-bg;
     @include box-shadow($chosen-drop-box-shadow);
-    // @include border-bottom-radius($chosen-input-border-radius);
   }
   &.chosen-with-drop .chosen-drop {
     left: 0;

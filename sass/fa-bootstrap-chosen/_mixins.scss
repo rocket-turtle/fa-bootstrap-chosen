@@ -35,3 +35,26 @@
     }
   }
 }
+
+// Best we can do ist fake the disabled elements and try to hide everything else.
+@mixin chosen-disabled {
+  // bootstrap-sass-3.3.6/assets/stylesheets/bootstrap/_forms.scss:146
+  fieldset[disabled] &,
+  fieldset[disabled] & * {
+    cursor: $cursor-disabled;
+    background-color: $input-bg-disabled;
+    opacity: 1; // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655
+    @include chosen-focus($input-border);
+    @include box-shadow(none !important);
+    @include border-bottom-radius($chosen-input-multi-border-radius !important);
+  }
+  fieldset[disabled] & .chosen-drop *,
+  fieldset[disabled] & .chosen-single div {
+    opacity: 0 !important;
+    display: none !important;
+    visibility: hidden !important;
+  }
+  fieldset[disabled] & .chosen-choices * {
+    opacity: 0 !important;
+  }
+}

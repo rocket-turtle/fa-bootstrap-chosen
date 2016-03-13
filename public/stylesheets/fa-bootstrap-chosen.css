@@ -14,6 +14,27 @@
   -ms-user-select: none;
   user-select: none;
 }
+fieldset[disabled] .chosen-container, fieldset[disabled] .chosen-container * {
+  cursor: not-allowed;
+  background-color: #eeeeee;
+  opacity: 1;
+  border-color: #ccc;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(204, 204, 204, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(204, 204, 204, 0.6);
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border-bottom-right-radius: 4px !important;
+  border-bottom-left-radius: 4px !important;
+}
+fieldset[disabled] .chosen-container .chosen-drop *, fieldset[disabled] .chosen-container .chosen-single div {
+  opacity: 0 !important;
+  display: none !important;
+  visibility: hidden !important;
+}
+fieldset[disabled] .chosen-container .chosen-choices * {
+  opacity: 0 !important;
+}
 .chosen-container * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
