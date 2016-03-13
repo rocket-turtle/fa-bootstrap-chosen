@@ -433,3 +433,54 @@
   }
 }
 /* @end */
+
+/* @group Feedback states */
+// You have to add the feedback icons and the error messages via JS
+
+.has-success {
+  @include chosen-validation($state-success-text);
+}
+
+.has-warning {
+  @include chosen-validation($state-warning-text);
+}
+
+.has-error {
+  @include chosen-validation($state-danger-text);
+}
+
+// bootstrap-sass-3.3.5/assets/stylesheets/bootstrap/_forms.scss:388
+.has-feedback {
+  .chosen-single {
+    padding-right: $input-height-base;
+    abbr {
+      right: $input-height-base + $font-size-base + 3px;
+    }
+    div {
+      right: $input-height-base + 3px;
+    }
+  }
+  .chosen-choices {
+    padding-right: $input-height-base;
+  }
+}
+
+.chosen-rtl .has-feedback {
+  .chosen-single {
+    padding-right: 0;
+    padding-left: $input-height-base;
+    abbr {
+      right: auto;
+      left: $input-height-base + $font-size-base + 3px;
+    }
+    div {
+      right: auto;
+      left: $input-height-base + 3px;
+    }
+  }
+  .chosen-choices {
+    padding-right: 0;
+    padding-left: $input-height-base;
+  }
+}
+/* @end */
