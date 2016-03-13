@@ -4,8 +4,7 @@
 @import "bootstrap/mixins";
 
 @import "fa-bootstrap-chosen/variables";
-
-@import "compass/css3/images";
+@import "fa-bootstrap-chosen/mixins";
 
 $chosen-sprite: image-url('chosen-sprite.png') !default;
 $chosen-sprite-retina: image-url('chosen-sprite@2x.png') !default;
