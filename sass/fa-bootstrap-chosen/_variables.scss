@@ -14,13 +14,17 @@ $chosen-background-color-search: $chosen-input-bg !default;
 $chosen-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075) !default;
 $chosen-drop-box-shadow: 0 8px 8px rgba(0, 0, 0, .25) !default;
 
+// You can use a different font-family 'Glyphicons Halflings' for example
 $chosen-icon-font-family: FontAwesome !default;
 $chosen-icon-font-size: 14px !default;
 $chosen-icon-line-height: $line-height-computed !default;
 $chosen-icon-color: $chosen-input-color-placeholderd !default;
 
-
 $chosen-icon-up: '\f077' !default;
 $chosen-icon-down: '\f078' !default;
 $chosen-icon-close: '\f00d' !default;
 $chosen-icon-search: '\f002' !default;
+
+$chosen-input-border-focus: $input-border-focus !default;
+// bootstrap-sass-3.3.6/assets/stylesheets/bootstrap/_forms.scss:127
+$chosen-focus-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;

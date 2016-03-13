@@ -79,7 +79,7 @@
     color: $chosen-input-color;
     text-decoration: none;
     white-space: nowrap;
-    line-height: $chosen-input-height-base; // TODO
+    line-height: $chosen-input-height-base;
   }
   .chosen-default {
     color: $chosen-input-color-placeholderd;
@@ -131,11 +131,8 @@
       outline: 0;
       border: $chosen-input-border;
       background-color: $chosen-background-color-search;
-      font-size: 1em;
-      font-family: sans-serif;
-      line-height: normal;
-      @include border-top-radius(0);
-      @include border-bottom-radius(0);
+      @include border-top-radius($chosen-input-border-radius);
+      @include border-bottom-radius($chosen-input-border-radius);
     }
     &:after {
       @include chosen-font-awesome-icon($chosen-icon-search);
@@ -257,11 +254,8 @@
         background: transparent !important;
         @include box-shadow(none);
         color: $chosen-input-color-placeholderd;
-        // font-size: 100%;
-        // font-family: sans-serif;
-        // line-height: normal;
-        @include border-top-radius(0);
-        @include border-bottom-radius(0);
+        @include border-top-radius($chosen-input-border-radius);
+        @include border-bottom-radius($chosen-input-border-radius);
       }
 
       .default {
@@ -328,28 +322,27 @@
 }
 /* @end */
 
-/* @group Active  */
+/* @group Focus / Active  */
+.chosen-single, .chosen-choices,
+.chosen-search input[type="text"] {
+  @include transition($chosen-focus-transition);
+}
+
 .chosen-container-active{
-  .chosen-single {
-    border: 1px solid #5897fb;
-    box-shadow: 0 0 5px rgba(#000,.3);
+  .chosen-single, .chosen-choices,
+  .chosen-search input[type="text"] {
+    @include chosen-focus;
   }
   &.chosen-with-drop{
-    .chosen-single {
-      border: 1px solid #aaa;
-      -moz-border-radius-bottomright: 0;
-      border-bottom-right-radius: 0;
-      -moz-border-radius-bottomleft: 0;
-      border-bottom-left-radius: 0;
-      box-shadow: 0 1px 0 #fff inset;
+    .chosen-single, .chosen-choices {
+      @include border-bottom-radius(0);
+      border-bottom: $chosen-input-border !important;
     }
     .chosen-single div b:after {
       @include chosen-font-awesome-icon($chosen-icon-up);
     }
   }
   .chosen-choices {
-    border: 1px solid #5897fb;
-    box-shadow: 0 0 5px rgba(#000,.3);
     li.search-field input[type="text"] {
       color: $gray-darker !important;
     }
