@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .chosen-select, .chosen-select-deselect {
   width: 100%;
 }
@@ -91,33 +92,40 @@
 }
 .chosen-container-single .chosen-single abbr {
   position: absolute;
-  top: 6px;
-  right: 26px;
+  top: 0;
+  right: 17px;
   display: block;
-  width: 12px;
-  height: 12px;
-  background: url('/images/chosen-sprite.png?1457830862') -42px 1px no-repeat;
-  font-size: 1px;
 }
-.chosen-container-single .chosen-single abbr:hover {
-  background-position: -42px -10px;
+.chosen-container-single .chosen-single abbr:after {
+  font-family: FontAwesome;
+  font-size: 14px;
+  display: block;
+  width: 20px;
+  color: #999;
+  content: "";
+  text-align: center;
 }
-.chosen-container-single.chosen-disabled .chosen-single abbr:hover {
-  background-position: -42px -10px;
+.chosen-container-single .chosen-single abbr:hover:after {
+  color: black;
+}
+.chosen-container-single.chosen-disabled .chosen-single abbr:hover:after {
+  color: black;
 }
 .chosen-container-single .chosen-single div {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 3px;
   display: block;
-  width: 18px;
   height: 100%;
 }
-.chosen-container-single .chosen-single div b {
+.chosen-container-single .chosen-single div b:after {
+  font-family: FontAwesome;
+  font-size: 14px;
   display: block;
-  width: 100%;
-  height: 100%;
-  background: url('/images/chosen-sprite.png?1457830862') no-repeat 0px 2px;
+  width: 20px;
+  color: #999;
+  content: "";
+  text-align: center;
 }
 .chosen-container-single .chosen-search {
   position: relative;
@@ -133,8 +141,7 @@
   height: auto;
   outline: 0;
   border: 1px solid #ccc;
-  background: #fff url('/images/chosen-sprite.png?1457830862') no-repeat 100% -20px;
-  background: url('/images/chosen-sprite.png?1457830862') no-repeat 100% -20px;
+  background-color: #fff;
   font-size: 1em;
   font-family: sans-serif;
   line-height: normal;
@@ -142,6 +149,18 @@
   border-top-left-radius: 0;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
+}
+.chosen-container-single .chosen-search:after {
+  font-family: FontAwesome;
+  font-size: 14px;
+  display: block;
+  width: 20px;
+  color: #999;
+  content: "";
+  text-align: center;
+  position: absolute;
+  right: 2px;
+  top: 7px;
 }
 .chosen-container-single .chosen-drop {
   margin-top: -1px;
@@ -154,6 +173,13 @@
 .chosen-container-single.chosen-container-single-nosearch .chosen-search {
   position: absolute;
   left: -9999px;
+}
+.chosen-container-single.chosen-container-single-nosearch .chosen-search input[type="text"] {
+  position: absolute;
+  left: -9000px;
+}
+.chosen-container-single.chosen-container-single-nosearch .chosen-search:after {
+  left: -9000px;
 }
 
 /* @end */
@@ -272,8 +298,6 @@
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
   background-color: #eeeeee;
-  background-size: 100% 19px;
-  background-repeat: repeat-x;
   background-clip: padding-box;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -289,13 +313,20 @@
   top: 2px;
   right: 2px;
   display: block;
-  width: 12px;
-  height: 12px;
-  background: url('/images/chosen-sprite.png?1457830862') -42px 1px no-repeat;
-  font-size: 1px;
 }
-.chosen-container-multi .chosen-choices li.search-choice .search-choice-close:hover {
-  background-position: -42px -10px;
+.chosen-container-multi .chosen-choices li.search-choice .search-choice-close:after {
+  font-family: FontAwesome;
+  font-size: 14px;
+  display: block;
+  width: 20px;
+  color: #999;
+  content: "";
+  text-align: center;
+  width: 14px;
+  line-height: 14px;
+}
+.chosen-container-multi .chosen-choices li.search-choice .search-choice-close:hover:after {
+  color: black;
 }
 .chosen-container-multi .chosen-choices li.search-choice-disabled {
   padding-right: 5px;
@@ -306,8 +337,8 @@
 .chosen-container-multi .chosen-choices li.search-choice-focus {
   background: #d4d4d4;
 }
-.chosen-container-multi .chosen-choices li.search-choice-focus .search-choice-close {
-  background-position: -42px -10px;
+.chosen-container-multi .chosen-choices li.search-choice-focus .search-choice-close:hover:after {
+  color: black;
 }
 .chosen-container-multi .chosen-results {
   margin: 0;
@@ -331,15 +362,16 @@
   border-bottom-right-radius: 0;
   -moz-border-radius-bottomleft: 0;
   border-bottom-left-radius: 0;
-  background-image: linear-gradient(#eee 20%, #fff 80%);
   box-shadow: 0 1px 0 #fff inset;
 }
-.chosen-container-active.chosen-with-drop .chosen-single div {
-  border-left: none;
-  background: transparent;
-}
-.chosen-container-active.chosen-with-drop .chosen-single div b {
-  background-position: -18px 2px;
+.chosen-container-active.chosen-with-drop .chosen-single div b:after {
+  font-family: FontAwesome;
+  font-size: 14px;
+  display: block;
+  width: 20px;
+  color: #999;
+  content: "";
+  text-align: center;
 }
 .chosen-container-active .chosen-choices {
   border: 1px solid #5897fb;
@@ -409,39 +441,20 @@
   margin: 0 0 4px 4px;
   padding: 0 4px 0 0;
 }
+.chosen-rtl.chosen-container-single .chosen-search:after {
+  right: auto;
+  left: 2px;
+}
+.chosen-rtl.chosen-container-single-nosearch .chosen-search:after {
+  left: -9999px;
+}
 .chosen-rtl .chosen-results li.group-option {
   padding-right: 15px;
   padding-left: 0;
 }
-.chosen-rtl.chosen-container-active.chosen-with-drop .chosen-single div {
-  border-right: none;
-}
 .chosen-rtl .chosen-search input[type="text"] {
   padding: 4px 5px 4px 20px;
-  background: #fff url('/images/chosen-sprite.png?1457830862') no-repeat -30px -20px;
-  background: url('/images/chosen-sprite.png?1457830862') no-repeat -30px -20px;
   direction: rtl;
 }
-.chosen-rtl.chosen-container-single .chosen-single div b {
-  background-position: 6px 2px;
-}
-.chosen-rtl.chosen-container-single.chosen-with-drop .chosen-single div b {
-  background-position: -12px 2px;
-}
 
-/* @end */
-/* @group Retina compatibility */
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi), only screen and (min-resolution: 1.5dppx) {
-  .chosen-rtl .chosen-search input[type="text"],
-  .chosen-container-single .chosen-single abbr,
-  .chosen-container-single .chosen-single div b,
-  .chosen-container-single .chosen-search input[type="text"],
-  .chosen-container-multi .chosen-choices .search-choice .search-choice-close,
-  .chosen-container .chosen-results-scroll-down span,
-  .chosen-container .chosen-results-scroll-up span {
-    background-image: url('/images/chosen-sprite@2x.png?1457830862') !important;
-    background-size: 52px 37px !important;
-    background-repeat: no-repeat !important;
-  }
-}
 /* @end */
