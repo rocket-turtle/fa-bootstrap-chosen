@@ -458,3 +458,74 @@
 }
 
 /* @end */
+/* @group Feedback states */
+.has-success .chosen-single, .has-success .chosen-choices,
+.has-success .chosen-search input[type="text"] {
+  border-color: #3c763d;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+.has-success .chosen-container-active .chosen-single, .has-success .chosen-container-active .chosen-choices,
+.has-success .chosen-container-active .chosen-search input[type="text"] {
+  border-color: #2b542c;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
+}
+
+.has-warning .chosen-single, .has-warning .chosen-choices,
+.has-warning .chosen-search input[type="text"] {
+  border-color: #8a6d3b;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+.has-warning .chosen-container-active .chosen-single, .has-warning .chosen-container-active .chosen-choices,
+.has-warning .chosen-container-active .chosen-search input[type="text"] {
+  border-color: #66512c;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b;
+}
+
+.has-error .chosen-single, .has-error .chosen-choices,
+.has-error .chosen-search input[type="text"] {
+  border-color: #a94442;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+.has-error .chosen-container-active .chosen-single, .has-error .chosen-container-active .chosen-choices,
+.has-error .chosen-container-active .chosen-search input[type="text"] {
+  border-color: #843534;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
+}
+
+.has-feedback .chosen-single {
+  padding-right: 34px;
+}
+.has-feedback .chosen-single abbr {
+  right: 51px;
+}
+.has-feedback .chosen-single div {
+  right: 37px;
+}
+.has-feedback .chosen-choices {
+  padding-right: 34px;
+}
+
+.chosen-rtl .has-feedback .chosen-single {
+  padding-right: 0;
+  padding-left: 34px;
+}
+.chosen-rtl .has-feedback .chosen-single abbr {
+  right: auto;
+  left: 51px;
+}
+.chosen-rtl .has-feedback .chosen-single div {
+  right: auto;
+  left: 37px;
+}
+.chosen-rtl .has-feedback .chosen-choices {
+  padding-right: 0;
+  padding-left: 34px;
+}
+
+/* @end */
