@@ -46,11 +46,7 @@ fieldset[disabled] .chosen-container .chosen-choices * {
   left: -9999px;
   z-index: 1010;
   width: 100%;
-  border: 1px solid 1px solid #ccc;
-  border-top: 0;
   background: #fff;
-  -webkit-box-shadow: 0 8px 8px rgba(0, 0, 0, 0.25);
-  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.25);
 }
 .chosen-container.chosen-with-drop .chosen-drop {
   left: 0;
@@ -377,6 +373,14 @@ fieldset[disabled] .chosen-container .chosen-choices * {
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
+.chosen-container-active .chosen-drop {
+  border: 1px solid #66afe9;
+  -webkit-box-shadow: 0px -6px 0 -1px #fff, 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: 0px -6px 0 -1px #fff, 0 0 8px rgba(102, 175, 233, 0.6);
+}
+.chosen-container-active.chosen-container-single .chosen-drop {
+  border-top: 0;
+}
 .chosen-container-active .chosen-single, .chosen-container-active .chosen-choices,
 .chosen-container-active .chosen-search input[type="text"] {
   border-color: #66afe9;
@@ -492,6 +496,14 @@ fieldset[disabled] .chosen-container .chosen-choices * {
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
 }
+.has-success .chosen-container-active .chosen-drop {
+  border-color: #2b542c;
+  -webkit-box-shadow: 0px -6px 0 -1px #fff, 0 0 8px #67b168;
+  box-shadow: 0px -6px 0 -1px #fff, 0 0 8px #67b168;
+}
+.chosen-container-single .has-success .chosen-container-active .chosen-drop {
+  border-top: 0;
+}
 
 .has-warning .chosen-single, .has-warning .chosen-choices,
 .has-warning .chosen-search input[type="text"] {
@@ -505,6 +517,14 @@ fieldset[disabled] .chosen-container .chosen-choices * {
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b;
 }
+.has-warning .chosen-container-active .chosen-drop {
+  border-color: #66512c;
+  -webkit-box-shadow: 0px -6px 0 -1px #fff, 0 0 8px #c0a16b;
+  box-shadow: 0px -6px 0 -1px #fff, 0 0 8px #c0a16b;
+}
+.chosen-container-single .has-warning .chosen-container-active .chosen-drop {
+  border-top: 0;
+}
 
 .has-error .chosen-single, .has-error .chosen-choices,
 .has-error .chosen-search input[type="text"] {
@@ -517,6 +537,14 @@ fieldset[disabled] .chosen-container .chosen-choices * {
   border-color: #843534;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
+}
+.has-error .chosen-container-active .chosen-drop {
+  border-color: #843534;
+  -webkit-box-shadow: 0px -6px 0 -1px #fff, 0 0 8px #ce8483;
+  box-shadow: 0px -6px 0 -1px #fff, 0 0 8px #ce8483;
+}
+.chosen-container-single .has-error .chosen-container-active .chosen-drop {
+  border-top: 0;
 }
 
 .has-feedback .chosen-single {
