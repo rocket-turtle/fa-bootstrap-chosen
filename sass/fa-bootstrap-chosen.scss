@@ -81,16 +81,16 @@
   }
   .chosen-single span {
     display: block;
-    margin-right: $line-height-computed;
+    margin-right: $chosen-icon-fixed-width + $padding-base-horizontal;
     @include text-overflow();
   }
   .chosen-single-with-deselect span {
-    margin-right: $line-height-computed * 2;
+    margin-right: 2 * $chosen-icon-fixed-width + $padding-base-horizontal;
   }
   .chosen-single abbr {
     position: absolute;
     top: 0;
-    right: $font-size-base + 3px;
+    right: $chosen-icon-fixed-width + $padding-base-horizontal/2;
     display: block;
     &:after {
       @include chosen-font-awesome-icon($chosen-icon-close);
@@ -105,7 +105,7 @@
   .chosen-single div {
     position: absolute;
     top: 0;
-    right: 3px;
+    right: $padding-base-horizontal/2;
     display: block;
     height: 100%;
     b:after {
@@ -116,11 +116,11 @@
     position: relative;
     z-index: 1010;
     margin: 0;
-    padding: 3px 4px;
+    padding: $padding-base-vertical/2 $padding-base-horizontal/2;
     white-space: nowrap;
     input[type="text"] {
       margin: 1px 0;
-      padding: 4px $font-size-base 4px 4px;
+      padding: 4px ($chosen-icon-fixed-width + $padding-base-horizontal) 4px ($padding-base-horizontal/2 - $chosen-input-border-width);
       width: 100%;
       height: auto;
       outline: 0;
@@ -132,7 +132,7 @@
     &:after {
       @include chosen-font-awesome-icon($chosen-icon-search);
       position: absolute;
-      right: 2px;
+      right: $padding-base-horizontal;
       top: $font-size-base / 2;
     }
   }
@@ -170,7 +170,7 @@
   li {
     display: none;
     margin: 0;
-    padding: 5px $padding-base-horizontal;
+    padding: $chosen-line-height-quarter $padding-base-horizontal;
     list-style: none;
     line-height: $line-height-base;
     word-wrap: break-word;
@@ -260,8 +260,8 @@
 
     &.search-choice {
       position: relative;
-      margin: 6px 0 3px 5px;
-      padding: 3px $line-height-computed 3px 5px;
+      margin: $chosen-search-choice-gap 0 $chosen-search-choice-gap $chosen-search-choice-gap;
+      padding: $chosen-search-choice-gap $chosen-icon-fixed-width $chosen-search-choice-gap $chosen-search-choice-gap;
       border: $chosen-input-border;
       max-width: 100%;
       @include border-top-radius($chosen-input-border-radius);
@@ -270,7 +270,7 @@
       background-clip: padding-box;
       @include box-shadow($chosen-box-shadow);
       color: $chosen-input-color;
-      line-height: $line-height-computed - 6px;
+      line-height: 1;
       cursor: default;
       span {
         word-wrap: break-word;
@@ -293,7 +293,7 @@
       }
     }
     &.search-choice-disabled {
-      padding-right: 5px;
+      padding-right: $chosen-line-height-quarter;
       border: $chosen-input-border;
       background-color: $chosen-input-bg-disabled;
       color: $gray;
@@ -368,26 +368,26 @@
 
 /* @group Right to Left */
 .chosen-rtl {
-  text-align: right;
+  direction: rtl;
   .chosen-single {
     overflow: visible;
     padding: 0 $padding-base-horizontal 0 0;
   }
   .chosen-single span {
     margin-right: 0;
-    margin-left: 26px;
+    margin-left: $chosen-icon-fixed-width + $padding-base-horizontal;
     direction: rtl;
   }
   .chosen-single-with-deselect span {
-    margin-left: 50px;
+    margin-left: 2 * $chosen-icon-fixed-width + $padding-base-horizontal;;
   }
   .chosen-single div {
     right: auto;
-    left: 3px;
+    left: $padding-base-horizontal/2;
   }
   .chosen-single abbr {
     right: auto;
-    left: $font-size-base + 3px;
+    left: $chosen-icon-fixed-width + $padding-base-horizontal/2;
   }
   .chosen-choices li {
     float: right;
@@ -395,8 +395,10 @@
       direction: rtl;
     }
     &.search-choice {
-      margin: 3px 5px 3px 0;
-      padding: 3px 5px 3px $line-height-computed;
+      margin-right: $chosen-search-choice-gap;
+      margin-left: 0;
+      padding-right: $chosen-search-choice-gap;
+      padding-left: $chosen-icon-fixed-width;
 
       .search-choice-close {
         right: auto;
@@ -404,34 +406,19 @@
       }
     }
   }
-  &.chosen-container-single-nosearch .chosen-search,
-  .chosen-drop {
-    left: 9999px;
-  }
-  &.chosen-container-single {
-    .chosen-results {
-      margin: 0 0 4px 4px;
-      padding: 0 4px 0 0;
-    }
-
+  .chosen-container-single {
     .chosen-search:after {
       right: auto;
-      left: 2px;
+      left: $padding-base-horizontal;
     }
   }
-
-  &.chosen-container-single-nosearch {
-    .chosen-search:after {
-      left: -9999px;
-    }
-  }
-
   .chosen-results li.group-option {
-    padding-right: 15px;
     padding-left: 0;
+    padding-right: 15px;
   }
   .chosen-search input[type="text"] {
-    padding: 4px 5px 4px 20px;
+    padding-right: ($padding-base-horizontal/2 - $chosen-input-border-width);
+    padding-left: ($chosen-icon-fixed-width + $padding-base-horizontal);
     direction: rtl;
   }
 }
@@ -457,10 +444,10 @@
   .chosen-single {
     padding-right: $input-height-base;
     abbr {
-      right: $input-height-base + $font-size-base + 3px;
+      right: (2 * $chosen-icon-fixed-width + $padding-base-horizontal);
     }
     div {
-      right: $input-height-base + 3px;
+      right: ($chosen-icon-fixed-width + $padding-base-horizontal);
     }
   }
   .chosen-choices {
@@ -474,11 +461,11 @@
     padding-left: $input-height-base;
     abbr {
       right: auto;
-      left: $input-height-base + $font-size-base + 3px;
+      left: (2 * $chosen-icon-fixed-width + $padding-base-horizontal);
     }
     div {
       right: auto;
-      left: $input-height-base + 3px;
+      left: ($chosen-icon-fixed-width + $padding-base-horizontal);
     }
   }
   .chosen-choices {
