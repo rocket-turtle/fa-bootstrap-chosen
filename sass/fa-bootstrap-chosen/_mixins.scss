@@ -15,7 +15,7 @@
   $color-rgba: rgba(red($color), green($color), blue($color), .6);
   border-color: $color;
   outline: 0;
-  @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px $color-rgba);
+  @include box-shadow(inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px $color-rgba);
 }
 
 // bootstrap-sass-3.3.5/assets/stylesheets/bootstrap/mixins/_forms.scss:21
@@ -46,26 +46,31 @@
 // Best we can do ist fake the disabled elements and try to hide everything else.
 @mixin chosen-disabled {
   // bootstrap-sass-3.3.6/assets/stylesheets/bootstrap/_forms.scss:146
-  fieldset[disabled] &,
-  fieldset[disabled] & * {
+  fieldset[disabled] & {
     cursor: $cursor-disabled !important;
-    background-color: $input-bg-disabled;
-    opacity: 1; // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655
-    @include chosen-focus($input-border);
-    @include box-shadow(none !important);
-    @include border-bottom-radius($chosen-input-multi-border-radius !important);
-  }
-  fieldset[disabled] & .chosen-drop,
-  fieldset[disabled] & .chosen-drop *,
-  fieldset[disabled] & .chosen-single div {
-    opacity: 0 !important;
-    display: none !important;
-    visibility: hidden !important;
-  }
-  fieldset[disabled] & .chosen-choices .search-choice-close {
-    display: none !important;
-  }
-  fieldset[disabled] & .chosen-choices li.search-choice {
-    padding-right: $chosen-search-choice-gap;
+    * {
+      cursor: $cursor-disabled !important;
+    }
+    .chosen-single,
+    .chosen-choices {
+      background-color: $input-bg-disabled;
+      opacity: 1; // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655
+      @include chosen-focus($input-border);
+      @include box-shadow(none !important);
+      @include border-bottom-radius($chosen-input-multi-border-radius !important);
+    }
+    .chosen-drop,
+    .chosen-drop *,
+    .chosen-single div {
+      opacity: 0 !important;
+      display: none !important;
+      visibility: hidden !important;
+    }
+    .chosen-choices .search-choice-close {
+      display: none !important;
+    }
+    .chosen-choices li.search-choice {
+      padding-right: $chosen-search-choice-gap;
+    }
   }
 }
