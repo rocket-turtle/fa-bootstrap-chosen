@@ -9,11 +9,6 @@
         integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
   <link href="stylesheets/fa-bootstrap-chosen.css" rel="stylesheet">
   <style type="text/css" media="all">
-    /* fix rtl for demo */
-    .chosen-rtl .chosen-drop {
-      left: -9000px;
-    }
-
     .footer {
       position: absolute;
       bottom: 0;
@@ -39,7 +34,7 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <h1>FontAwesome + Bootstrap + Chosen</h1>
+        <h1>Font Awesome + Bootstrap + Chosen</h1>
       </div>
     </div>
   </div>
@@ -49,23 +44,10 @@
   <form role="form">
     <div class="row">
       <div class="col-xs-12">
-        <h1>Example Bootstrap forms</h1>
+        <h1>Plain Bootstrap forms</h1>
       </div>
-      <div class="col-sm-6">
-        <div class="form-group">
-          <label for="bootstrap-text">Text input</label>
-          <input type="text" class="form-control" id="bootstrap-text" placeholder="Placeholder text">
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="form-group has-success has-feedback">
-          <label class="control-label" for="bootstrap-text-success">Text input with success</label>
-          <input type="text" class="form-control" id="bootstrap-text-success" value="This is awesome.">
-          <span class="glyphicon glyphicon-ok form-control-feedback"></span>
-        </div>
-      </div>
-      <div class="row">
-      </div>
+    </div>
+    <div class="row">
       <div class="col-sm-6">
         <div class="form-group">
           <label for="bootstrap-select">Select list (select one):</label>
@@ -135,6 +117,14 @@
       </div>
       <div class="col-sm-6">
         <div class="form-group">
+          <label for="bootstrap-text">Text input</label>
+          <input type="text" class="form-control" id="bootstrap-text" placeholder="Placeholder text">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
           <label for="bootstrap-select-multiple">Mutiple select list (hold shift to select more than one):</label>
           <select multiple="" class="form-control" data-placeholder="Choose a Country" tabindex="1"
                   id="bootstrap-select-multiple">
@@ -201,8 +191,15 @@
           </select>
         </div>
       </div>
-      <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group has-success has-feedback">
+          <label class="control-label" for="bootstrap-text-success">Text input with success</label>
+          <input type="text" class="form-control" id="bootstrap-text-success" value="This is awesome.">
+          <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+        </div>
       </div>
+    </div>
+    <div class="row">
       <div class="col-sm-6">
         <div class="form-group">
           <fieldset disabled>
@@ -219,10 +216,13 @@
         </div>
       </div>
     </div>
+    <hr>
     <div class="row">
       <div class="col-xs-12">
         <h1>Single select</h1>
       </div>
+    </div>
+    <div class="row">
       <div class="col-sm-6">
         <div class="form-group">
           <label for="chosen-select">Single select</label>
@@ -275,6 +275,8 @@
       <div class="col-xs-12">
         <h1>Multiple Select</h1>
       </div>
+    </div>
+    <div class="row">
       <div class="col-sm-6">
         <div class="form-group">
           <label for="chosen-select-multiple">Mutiple select list</label>
@@ -304,8 +306,11 @@
     <div class="row">
       <div class="col-xs-12">
         <h1>Disabled fieldsets</h1>
-        <p>You can wrap your <code>&lt;div class="form-group"&gt;</code> in a <code>&lt;fieldset disabled&gt;</code> to disable it.</p>
+        <p>You can wrap your <code>&lt;div class="form-group"&gt;</code> in a <code>&lt;fieldset disabled&gt;</code> to
+          disable it.</p>
       </div>
+    </div>
+    <div class="row">
       <div class="col-sm-6">
         <fieldset disabled>
           <div class="form-group">
@@ -336,7 +341,7 @@
             <label for="chosen-select-multiple-disabled">Mutiple select disabled</label>
             <select data-placeholder="Choose some Countries" class="chosen-select" multiple=""
                     id="chosen-select-multiple-disabled" tabindex="-1">
-              <option value="Afghanistan">Afghanistan</option>
+              <option value="Afghanistan" selected="">Afghanistan</option>
               <option value="Aland Islands">Aland Islands</option>
               <option value="Albania">Albania</option>
               <option value="Algeria">Algeria</option>
@@ -351,7 +356,7 @@
               <option value="Aruba">Aruba</option>
               <option value="Australia">Australia</option>
               <option value="Austria">Austria</option>
-              <option value="Azerbaijan">Azerbaijan</option>
+              <option value="Azerbaijan" selected="">Azerbaijan</option>
             </select>
           </div>
         </fieldset>
@@ -362,6 +367,8 @@
       <div class="col-xs-12">
         <h1>&lt;optgroup&gt; Support</h1>
       </div>
+    </div>
+    <div class="row">
       <div class="col-sm-6">
         <div class="form-group">
           <label for="chosen-optgroup">Single select with groups</label>
@@ -374,7 +381,7 @@
               <option>Algeria</option>
               <option>American Samoa</option>
             </optgroup>
-            <optgroup label="B ...">
+            <optgroup label="Starting with B ...">
               <option>Bahamas</option>
               <option>Bahrain</option>
               <option>Bangladesh</option>
@@ -403,7 +410,7 @@
               <option>Albania</option>
               <option>Algeria</option>
             </optgroup>
-            <optgroup label="B ...">
+            <optgroup label="Starting with B ...">
               <option>Bahamas</option>
               <option>Bahrain</option>
               <option>Bangladesh</option>
@@ -423,9 +430,93 @@
     </div>
     <hr>
     <div class="row">
+      <div class="col-xs-12 text-right">
+        <h1>Right to Left Support</h1>
+        <p>You can add <code>class="chosen-rtl"</code> to enable the right to left mode. Please note that Bootstrap does
+          not support RTL out of the box.</p>
+      </div>
+    </div>
+    <div class="row chosen-rtl">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label class="control-label" for="rtl-chosen-select">Single select</label>
+          <select data-placeholder="Choose a Country" class="chosen-select" id="rtl-chosen-select" tabindex="-1">
+            <option value="Afghanistan">Afghanistan</option>
+            <option value="Albania">Albania</option>
+            <option value="Algeria">Algeria</option>
+            <option value="American Samoa">American Samoa</option>
+            <option value="Andorra">Andorra</option>
+            <option value="Angola">Angola</option>
+            <option value="Anguilla">Anguilla</option>
+            <option value="Antarctica">Antarctica</option>
+            <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+            <option value="Argentina">Argentina</option>
+            <option value="Armenia">Armenia</option>
+            <option value="Aruba">Aruba</option>
+            <option value="Australia">Australia</option>
+            <option value="Austria">Austria</option>
+            <option value="Azerbaijan">Azerbaijan</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label class="control-label" for="rtl-chosen-select-multiple">Multiple select</label>
+          <select data-placeholder="Choose a Country" class="chosen-select" multiple=""
+                  id="rtl-chosen-select-multiple" tabindex="-1">
+            <option value=""></option>
+            <option value="Afghanistan">Afghanistan</option>
+            <option value="Albania">Albania</option>
+            <option value="Algeria">Algeria</option>
+            <option value="American Samoa">American Samoa</option>
+            <option value="Andorra">Andorra</option>
+            <option value="Angola">Angola</option>
+            <option value="Anguilla">Anguilla</option>
+            <option value="Antarctica">Antarctica</option>
+            <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+            <option value="Argentina">Argentina</option>
+            <option value="Armenia">Armenia</option>
+            <option value="Aruba">Aruba</option>
+            <option value="Australia">Australia</option>
+            <option value="Austria">Austria</option>
+            <option value="Azerbaijan">Azerbaijan</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row chosen-rtl">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label class="control-label" for="rtl-chosen-select-deselect">Allow deselect on single selects</label>
+          <select data-placeholder="Choose a Country" class="chosen-select-deselect" id="rtl-chosen-select-deselect"
+                  tabindex="-1">
+            <option value=""></option>
+            <option value="Afghanistan">Afghanistan</option>
+            <option value="Albania">Albania</option>
+            <option value="Algeria">Algeria</option>
+            <option value="American Samoa">American Samoa</option>
+            <option value="Andorra">Andorra</option>
+            <option value="Angola">Angola</option>
+            <option value="Anguilla">Anguilla</option>
+            <option value="Antarctica">Antarctica</option>
+            <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+            <option value="Argentina">Argentina</option>
+            <option value="Armenia">Armenia</option>
+            <option value="Aruba">Aruba</option>
+            <option value="Australia">Australia</option>
+            <option value="Austria">Austria</option>
+            <option value="Azerbaijan">Azerbaijan</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
       <div class="col-xs-12">
         <h1>Validation states</h1>
       </div>
+    </div>
+    <div class="row">
       <div class="col-sm-6">
         <div class="form-group has-success">
           <label class="control-label" for="chosen-select-success">Single select success</label>
@@ -449,8 +540,34 @@
         </div>
       </div>
       <div class="col-sm-6">
-        <div class="form-group has-warning has-feedback">
-          <label class="control-label" for="chosen-select-feedback">Single select with feedback</label>
+        <div class="form-group has-warning">
+          <label class="control-label" for="chosen-select-multiple-warning">Multiple select with warning</label>
+          <select data-placeholder="Choose a Country" class="chosen-select" multiple=""
+                  id="chosen-select-multiple-warning" tabindex="-1">
+            <option value=""></option>
+            <option value="Afghanistan">Afghanistan</option>
+            <option value="Albania">Albania</option>
+            <option value="Algeria">Algeria</option>
+            <option value="American Samoa">American Samoa</option>
+            <option value="Andorra">Andorra</option>
+            <option value="Angola">Angola</option>
+            <option value="Anguilla">Anguilla</option>
+            <option value="Antarctica">Antarctica</option>
+            <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+            <option value="Argentina">Argentina</option>
+            <option value="Armenia">Armenia</option>
+            <option value="Aruba">Aruba</option>
+            <option value="Australia">Australia</option>
+            <option value="Austria">Austria</option>
+            <option value="Azerbaijan">Azerbaijan</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group has-success has-feedback">
+          <label class="control-label" for="chosen-select-feedback">Single select success with feedback</label>
           <select data-placeholder="Choose a Country" class="chosen-select-deselect" id="chosen-select-feedback"
                   tabindex="-1">
             <option value=""></option>
@@ -470,15 +587,15 @@
             <option value="Austria">Austria</option>
             <option value="Azerbaijan">Azerbaijan</option>
           </select>
-          <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+          <span class="glyphicon glyphicon-ok form-control-feedback"></span>
         </div>
       </div>
       <div class="col-sm-6">
         <div class="form-group has-error has-feedback">
-          <label class="control-label" for="chosen-select-multiple-feedback">Multiple select with error</label>
+          <label class="control-label" for="chosen-select-multiple-feedback">Multiple select with error and
+            feedback</label>
           <select data-placeholder="Choose some Countries" class="chosen-select" multiple=""
-                  id="chosen-select-multiple-feedback"
-                  tabindex="-1">
+                  id="chosen-select-multiple-feedback" tabindex="-1">
             <option value="Afghanistan">Afghanistan</option>
             <option value="Aland Islands">Aland Islands</option>
             <option value="Albania">Albania</option>
@@ -505,6 +622,8 @@
       <div class="col-xs-12">
         <h1>Setup</h1>
       </div>
+    </div>
+    <div class="row">
       <div class="col-xs-12">
         <p>Using Chosen with Bootstrap is easy and looks awesome.</p>
         <ul class="fa-ul">
@@ -526,6 +645,12 @@
     </div>
   </form>
 </div>
+<a href="https://github.com/rocket-turtle/fa-bootstrap-chosen">
+  <img style="position: absolute; top: 0; right: 0; border: 0;"
+       src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67"
+       alt="Fork me on GitHub"
+       data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+</a>
 <footer class="footer">
   <div class="container">
     Some cool footer.
@@ -533,7 +658,7 @@
 </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script src="http://harvesthq.github.io/chosen/chosen.jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.min.js"></script>
 <script type="text/javascript">
   $(function () {
     $('.chosen-select').chosen({width: '100%'});
