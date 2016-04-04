@@ -1,0 +1,37 @@
+{
+  "name": "fa-bootstrap-chosen",
+  "version": "1.0.0",
+  "homepage": "https://github.com/rocket-turtle/fa-bootstrap-chosen",
+  "authors": [
+    "Jonas S <jonas__s@web.de>"
+  ],
+  "description": "The fa-bootstrap-chosen is a style that you can use the popular chosen library with Bootstrap.",
+  "main": [
+    "sass/fa-bootstrap-chosen.scss",
+    "sass/fa-bootstrap-chosen/_mixins.scss",
+    "sass/fa-bootstrap-chosen/_variables.scss",
+    "public/stylesheets/fa-bootstrap-chosen.css"
+  ],
+  "keywords": [
+    "bootstrap",
+    "chosen",
+    "multiselect",
+    "dropdown",
+    "select",
+    "input",
+    "form",
+    "ui"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "gulpfile.js",
+    "package.json",
+    "sass-for-demo/*",
+    "public/index.html"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "boostrap-sass#^3.3.6",
+    "chosen": "^1.5.1"
+  }
+}
