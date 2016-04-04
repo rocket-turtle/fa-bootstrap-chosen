@@ -1,0 +1,39 @@
+{
+  "name": "fa-bootstrap-chosen",
+  "version": "1.0.0",
+  "description": "The fa-bootstrap-chosen is a style that you can use the popular chosen library with Bootstrap.",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.2.0",
+    "gulp-sourcemaps": "^1.6.0"
+  },
+  "config": {
+    "bower_directory": "src/vendor"
+  },
+  "scripts": {
+    "bower-install": "bower install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rocket-turtle/fa-bootstrap-chosen.git"
+  },
+  "keywords": [
+    "bootstrap",
+    "chosen",
+    "multiselect",
+    "dropdown",
+    "select",
+    "input",
+    "form",
+    "ui"
+  ],
+  "author": "Jonas S <jonas__s@web.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rocket-turtle/fa-bootstrap-chosen/issues"
+  },
+  "homepage": "http://rocket-turtle.github.io/fa-bootstrap-chosen/"
+}
