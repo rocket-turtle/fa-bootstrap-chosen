@@ -23,7 +23,7 @@ $chosen-input-multi-border-radius: $chosen-input-border-radius !default;
 $chosen-line-height-quarter: $line-height-computed/4 !default;
 $chosen-search-choice-gap: ($chosen-line-height-quarter - $chosen-input-border-width) !default;
 $chosen-input-multi-height-base: $input-height-base + 6px !default;
-$chosen-highlighted-background-color: $link-color !default;
+$chosen-highlighted-background-color: $input-border-focus !default;
 
 // fa-bootstrap-chosen icons
 $chosen-icon-font-family: FontAwesome !default; // You can use a different font-family 'Glyphicons Halflings' for example

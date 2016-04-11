@@ -271,7 +271,7 @@ fieldset[disabled] .chosen-container .chosen-choices li.search-choice {
 }
 
 .chosen-container .chosen-results li.highlighted {
-  background-color: #337ab7;
+  background-color: #66afe9;
   background-image: none;
   color: white;
 }
